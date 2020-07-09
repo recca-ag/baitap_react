@@ -1,0 +1,62 @@
+Buổi 1 React
+
+1."npm install create-react-app -g" --> tạo thư viện react app. trong cmd,cài suôn sẻ phải là win bản quyền
+//react là single page
+
+2.mở thư mục react tại desktop--> lệnh cd hoặc git bash here, đặt tên project viết bình thường, không viết hoa, có thể gạch nối
+-->gõ lệnh create-react-app 'tên thư mục'
+
+3.mở visual, open folder-->thư mục vừa cài
+
+4.mở file index -->mở terminal chọn new terminal--->xuất hiện cửa sổ nhỏ-->gõ npm start.
+cách 2 mở trực tiếp thư mục, chọn git bash here--->npm start
+
+5. folder node_modules chạy lâu hay chậm do node_module, không quan tâm và không xóa
+   Thư mục public chứa tài nguyên html --> file pakage.js hiển thị thông tin module
+nếu không có-->gõ npm install trong terminal
+
+   src-->phần chính, có thư mục index.js là phần chính
+bỏ cặp thẻ để lại <app/> -->bâm ctrl +click -->hiển thị thư mục của app.js
+component-->code từng file trong trang
+
+   gitignore là những thứ liệt kê trong # dependencies không đẩy lên git
+   pakage hiển thị tên, version, cú pháp
+
+có 2 loại:
+ stateful component, (class)
+ stateless component (fuction)
+
+js viết chung với html gọi là jsx
+
+.từ 2 thẻ div trở lên phải có dấu ngoặc
+.tên Component phải viết hoa, 
+.không khoảng cách trong return()
+.trong 1 component không có thẻ song song, phải có div lớn bên ngoài bao các thẻ bên trong
+.Thẻ trong component là thẻ khuyết <Component/>
+import thư mục cần làm trong app.js
+react không xài sẽ báo lỗi
+
+download cdn boostrap
+gõ câu lệnh npm install jquery popper.js bootstrap --save
+kiểm tra trong pakage.js có tải về bootstrap chưa, trong node-module có bootstrap.js và poper.js chưa
+ xong import 3 file vào file index.js
+
+	import "bootstrap/dist/css/bootrap.min.css";
+	import "jquery/dist/jquery.min.js";
+	import "popper.js/dist/umd/popper.min.js";
+	import "bootstrap/dist/js/bootstrap.min.js";
+
+thư mục public có tài nguyên liên quan img, coppy dán vào public
+
+
+Baitap2
+    +Header
+    +Carousel
+    +WWD
+    +Contact
+    +ListCard
+        Itemcard
+    +Footer
+
+Baitap layout
+về nhà làm

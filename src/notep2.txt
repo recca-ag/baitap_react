@@ -1,0 +1,72 @@
+Buổi 2:
+
+*Rendering Elements
+*Components and Props
+* Handling Events onclick
+*State
+*List and key
+
+
+    .Reactjs.org -->trang chủ react
+    .gõ từ khóa phần cần tim thêm đuôi reactjs
+    .cài es7 react redux-->gõ tắt component, gõ tắt 'rcc'.
+
+Gọi hàm
+    Cách 1. tạo 1 biến username
+    gọi biến bằng Username :{this.username} -->gọi biến {this.biến}
+    Cách 2.
+    renderInfo = () => {
+        return (
+            <p> Username: { this.username} - lop: { this.lop}</p >
+        );
+    }
+    gọi hàm
+    <div>
+              
+        
+                {this.renderInfo()}
+            </div>
+Gọi hàm trong button
++không truyền tham số 
+    handleOnclick = () => {
+        console.log("handleOnclick");
+    }
+    onClick={this.handleOnclick}
++có truyền tham số
+    handleOnclickParams = (name, tuoi) => {
+        console.log("Hello " + name + "tuoi" + tuoi);
+    }
+    onClick={() => { this.handleOnclickParams("Long", "18") }}
+
+*renderelement {this.usernam}
+-------
+++Tạo login thành công trong folder example
+    Cách 1
+        tạo 1 cờ isLogin =true;
+        gọi if else trong hàm renderHTML--->nếu thành công và nếu thất bại
+    Cách 2
+        if (1===1){
+            //Dung
+        }else{
+            //Sai
+        }
+    Toán tử 3 ngôi DK ? "Dung" : "Sai"
+    1==1 ? "Dung" : "Sai"
+
+++Tạo 1 folder State để sét lại username
+Kiến thức làm hàm render chạy lại hơn 1 lần -->State
+    tạo hàm khởi tạo constructor có super, biến có key và value-->trong oop
+    gọi hàm this.setState({
+        isLogin: true
+    });
+==> tại sao react chạy như z component state chạy -->hàm khởi tạo chạy lần đầu tiên-->bấm vào login nó set lại state
+==> khi state thay đổi hàm render chạy lại
+==>constructor và render là hai life cycle của react
+map trả về mảng mới, foreach ko trả ra mảng mới
+
+
+Tạo folder list key
+    renderTable có 2 retrun trả về mảng trong map, trả về hàm
+    trong list phải có key
+
+bai tap viet ra renderHTML-->duyet mang-->tra ve card cua bootstrap-->renderringElement show title, img, des
