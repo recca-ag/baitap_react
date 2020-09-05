@@ -1,0 +1,113 @@
+REDUX tất cả các state ở home bỏ lên store
+khi bấm vào nút gọi qua action-->truyền về store, trong store có reducer root có nhìu reducer con-->return-->view
+mũi tên 1 chiều action-->reducer-->view
+
+cài đặt npm install redux react-redux --save
+cài redux dev tool extension
+
+tạo redux trong index lớn
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+
+const store = createStore();
+
+ReactDOM.render(
+
+  <Provider store={store}>
+    <App />
+  </Provider>,
+
+trên state không còn setstate nữa mà return reducer
+
+Buổi 7 React Redux
+
+Xét điều kiện props có tồn tại không và length của nó phải >0 khi nhận props
+ if (userList && userList.length > 0) {}
+
+ kết nối react redux lấy userList từ redux về
+ //import connect
+import { connect } from "react-redux";
+
+const mapStateToProps = state => {
+  return {
+    userList: state.userReducer.userList
+  };
+};
+
+//export connect từ reactredux
+export default connect(mapStateToProps, null)(Users);
+
+Xóa 1 id trên redux-->những hàm nào có mapStateToProps sẽ render lại-->USERitem xóa
+import { connect } from "react-redux";
+
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteUser: (id) => {
+      let action = {
+        type: "DELETE_USER",
+        id //id: id
+      };
+
+      dispatch(action);
+    }
+
+  };
+};
+
+export default connect(null, mapDispatchToProps)(UserItem);
+
+viết hàm xóa trên userReducer
+
+ switch (action.type) {
+        //Hàm DELETE_USER
+        case "DELETE_USER":
+            //console.log(action);
+            let index = state.userList.findIndex((item) => {
+                return item.id === action.id;
+            })
+            if (index !== -1) {
+                let userList = [...state.userList];
+                userList.splice(index, 1);
+
+                //cập nhật lại mảng
+                state.userList = userList;
+            }
+
+            return { ...state };
+
+//ADD USER
+Viết hàm trong modal tryền lên redux
+const mapDispatchToProps = dispatch => {
+  return {
+    onSave: (user) => {
+      let action = {
+        type: "ON_SAVE",
+        user // user: user
+      };
+      dispatch(action);
+    }
+  }
+}
+
+Viết hàm trong userreducer
+nhớ là action.user
+case "ON_SAVE":
+            //ADD USER
+            //push theo action.user của mapDispatchToProps
+
+            const userList = [...state.userList];
+            const id = Math.random().toString(36).substr(2, 5);
+            userList.push({ ...action.user, id });
+            state.userList = userList;
+
+            return { ...state };
+
+=====Buổi7========
+*User management redux (done)
+*Redux:
+    -mapStateToProps: lấy dât từ store xuống component
+    -mapDispatchToProps: bắn/gửi action lên store
+
+
+    --->Hình thành dự án phim
+    --Tạo ra project mới fe42reactrouting: bootrap, jquery,popper.js, redux, react-redux

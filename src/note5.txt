@@ -1,0 +1,59 @@
+*Khi click vào ô input sẽ nhận được sự kiện event.
+*Để render lại thì state or props thay đổi.
+-tạo ra 1 state có name, email mặc định rỗng
+-setstate lại trong ô input
+Nhập value vào ô input sẽ có sự kiện onchange kích hoạt event-->setstate cho biến-->input cập nhật giá trị mới.
+-->hết gõ ký tự được value={this.state.username}
+-->bắt sự kiện onchange onChange={(event) => this.setState({ email: event.target.value })} -->cách 1
+cách 2
+*key object listeral [key]="Hello"-->{name.hello}
+
+-->đặt cho ô input 1 cái name trùng với attribute username ->name="username"
+
+//viết listerral trong es5 là doom...trong react là onChange
+  handleChange = (event) => {
+    const { value, name } = event.target;
+    this.setState({
+      [name]: value,
+    });
+  };
+  có 2 kiểu viết:
+     kiểu 1 onChange={this.handleChange}
+     kiểu 2 onChange={(event) => this.handleChange(event)}
+
+
+**Kiểm tra lỗi validation
+viết lại state có values và errors--->truyền vào input this.state.values.username
+set lại hàm handleChange --> handleChange = (event) => {
+    const { value, name } = event.target;
+    const state = this.state;
+    this.setState({
+      values: {
+        ...state.values,
+        [name]: value,
+      }
+
+    });
+  };
+  **lưu ý: ...state.values--> nếu không có dòng này thì chỉ còn 1 cái key-->4 cái key kia bị undefine
+  
+  *Viet ham Submit
+   event.preventDefault();-->ngăn chặn load lại trang
+   **khi set state nên dùng
+   this.setState((state) => {
+        return {
+          errors: {
+            ...state.errors,
+            [key]: errorMessage,
+          },
+        };
+      });
+    }
+-->đảm bảo luôn là state mới nhất
+
+***Vòng đời của component 
+khi click vào Edit UserItem-->User-->index-->Modal
+
+**Mountin-->Constructor-->componentDidMount
+**Updating-->newprops,setstate,forceupdate-->shouldcomponentUpdate-->componentDidUpdate
+Unmounting-->componentWillUnmount

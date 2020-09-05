@@ -1,0 +1,43 @@
+*Tạo objProduct-->truyền obj vào listcart
+*chỉ push 1 mảng đối tượng
+*Làm 1 hàm renderTable trong modal.
+
+Cập nhật số lượng
+listcart=[
+    {
+        maSP:"1",
+    tenSP:"VinSmart"
+    },
+     {
+        maSP:"2,
+    tenSP:"Meizu"
+    },
+     {
+        maSP:"3",
+    tenSP:"Iphone"
+    },
+]
+maSP=3
+findindex()
+if(!==-1)
+viết hàm tìm vị trí
+tìm vị trí và gán cho nó vào biến index
+xét if else cho index,
+push vào mảng mới hoặc cộng dồn mảng
+
+Cập nhật tăng giảm số lượng
+listcart=[
+    {
+        maSP:"1",
+        tenSP:"VinSmart",
+        soLuong:1
+    }
+]
+
+***User manegement
+xác định hướng đi của từng component
+Tạo bảng
+
+Buổi 5 kiến thức *
+*form validtion
+*LifeCycle

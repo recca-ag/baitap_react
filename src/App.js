@@ -11,6 +11,13 @@ import State from "./state";
 import ListKeys from "./list-keys";
 import BaitapCar from "./Baitap-car";
 import BaitapList from "./Baitap-list";
+import Props from "./props";
+import LiftingStateUp from "./lifting-state-up";
+import LiftingStateUpCart from "./lifting-state-up-cart";
+// import Home from "./user-management";
+
+import HomeRedux from "./user-management-redux";
+import LifeCycle from "./LifeCycle";
 
 function App() {
   return (
@@ -26,6 +33,12 @@ function App() {
       <ListKeys />
       <BaitapCar />
       <BaitapList />
+      <Props />
+      <LiftingStateUp />
+      <LiftingStateUpCart />
+      {/* <Home /> */}
+      <HomeRedux />
+      <LifeCycle />
     </div>
 
   );

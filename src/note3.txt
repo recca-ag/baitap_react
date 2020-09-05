@@ -1,0 +1,39 @@
+Buổi 3: Kiến thức Props
+*Props-->từ thẻ cha truyền sang thẻ con
+    +class: mặc định có this.props
+    +function: phải có tham số props trên function
+
+truyền dữ liệu từ cha (props) sang con (classprops)
+tại component props tạo 1 constructor state
+tạo 1 component classpróp trong thư mục props
+sử dụng kiến thức bóc tách const{username}=this.state
+-classprop name={username}
+-function "rfc", trong functionprops truyền dữ liệu trong function phải có thêm tham số props, và không có từ khóa this.props.
+-function có thẻ mở thẻ đóng.--->thẻ con (classpróps) props.children
+
+
+*Lifting State Up-->từ thẻ con truyền sang thẻ cha 
+Sơ đồ đường đi 2 cấp "từ Danh sách sản phẩm tới sản phẩm"
+sanpham -->sử dụng kiến thức bóc tách const(product)=this.props;-->cho code gọn lại
+
+++con: chuyển product về onclick có hàm handleproduct-->trong hàm đó có this.props.detailproduct
+
+++cha: tạo 1 hàm handledetailProduct-->cha truyền vô con 1 props mang cái hàm
+ detailProduct={this.handleDetailProduct}
+
+set lại state trong hàm handleDetailProduct
+
+*Bài tập giỏ hàng
+Sơ đồ đường đi 3 cấp từ sản phẩm đi qua danh sách sản phẩm-->index
+truyền từ index vô danh sách sản phẩm 1 hàm -->danh sách sản phầm nhận từ sản phẩm 1 hàm trả về
+    ++Hàm setstate là 1 hàm bất đồng bộ muốn xem log thì tạo ra 1 hàm trong cấp để xem
+        ""hanldeAddCart = (product) => {
+
+     let listCart = [...this.state.listCart, product];
+     this.setState({
+         listCart
+
+     }, () => {
+          console.log(this.state.listCart);
+     });
+     };""
